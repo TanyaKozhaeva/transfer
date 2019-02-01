@@ -1,0 +1,45 @@
+.header
+  height: 76px
+  background-color: $mainColor
+  &__wrap
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+  &__logo
+    width: 118px
+    height: 24px
+    margin-right: 3%
+  &__navbar
+    display: flex
+    align-items: center
+    height: 100%
+  &__nav
+    height: 100%
+    margin-right: 2%
+  &__enter-btn
+    font-size: 1em
+    font-weight: 400
+    color: #fff
+    margin-right: 2%
+
+
+.nav
+  display: flex
+  align-items: center
+  color: #fff
+  &__link
+    padding: .5em 1.5em .5em 1em
+    position: relative
+    font-size: .8em
+    font-weight: 400
+    white-space: nowrap
+    &::after
+      content: '>'
+      font-size: 1em
+      font-weight: 600
+      color: inherit
+      position: absolute
+      top: 50%
+      right: 0
+      transform: translateY(-50%) rotate(90deg)

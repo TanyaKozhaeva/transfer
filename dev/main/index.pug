@@ -1,0 +1,25 @@
+extends main
+
+block title
+	| Главная страница
+
+block content
+	include blocks/mainScreen/mainScreen 
+	include blocks/calculator/calculator
+	include blocks/currency/currency
+	include blocks/security/security
+	include blocks/video/video
+	include blocks/feedback/feedback
+	include blocks/map/map  
+
+   
+
+
+mixin icon(name,mod)
+	- mod = mod || ''
+	svg(class="icon icon-" + name + ' ' + mod aria-hidden="true")
+		use(xlink:href="static/svg/symbol/sprite.svg#" + name)
+
+
+
+	

@@ -1,0 +1,55 @@
+.section-feedbacks
+  padding: 96px 0
+  text-align: center
+  background-color: $accentColor
+  &__title
+    margin-bottom: 6px
+  &__text
+    margin-bottom: 26px
+  &__slider
+    max-width: 726px
+    margin: 0 auto 57px
+
+.slider
+  &__item
+    text-align: center
+    padding: 35px 30px 30px
+    background-color: #fff
+    margin-left: 40px
+    margin-right: 40px
+  &__title
+    font-size: 18px
+    line-height: 24px
+    font-weight: 600
+    margin-bottom: 24px
+    color: $accentColor
+  &__text
+    font-size: 16px
+    color: #6f8691
+    margin-bottom: 24px
+
+  &__rating-item
+    width: 14px
+    height: 14px
+    fill: $accentColor
+    &:not(:last-child)
+      margin: 0 7px
+
+//SLICK CUSTOM
+.slick-prev
+  left: -96px
+.slick-next
+  right: -96px
+
+.slick-prev:before
+  content: '<'
+  font-size: 54px
+  font-weight: 600
+
+.slick-next:before
+  content: '>'
+  font-size: 54px
+  font-weight: 600
+
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before
+  opacity: 0

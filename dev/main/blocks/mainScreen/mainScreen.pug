@@ -1,0 +1,83 @@
+section.mainScreen
+  .wrapper
+    .mainScreen__text-box
+      h1.mainScreen__title Bye bye bank feels, hello world 
+        span.mainScreen__title-dot .
+      p.mainScreen__text При международных переводах банки берут до 5% так называемой скрытой комиссии. По итогам опросовб переводы с TransferWise 
+        a(href="#" target="blank") дешевле в 8 раз.
+        span  Все честно.
+      a(href="#").btn.btn_color_clear.mainScreen__btn Принцип работы
+      ul.mainScreen__promo
+        li.mainScreen__promo-item
+          +icon('lock', 'mainScreen__promo-icon')
+          .mainScreen__promo-text-wrap
+            p.mainScreen__promo-text Регулируется FCA
+            a(href="#" target="blank").mainScreen__promo-link Узнать больше
+        li.mainScreen__promo-item
+          +icon('people', 'mainScreen__promo-icon')
+          .mainScreen__promo-text-wrap
+            p.mainScreen__promo-text Более 4 миллионов клиентов
+            a(href="#" target="blank").mainScreen__promo-link Подробнее на Trastpoint
+        
+    .mainScreen__transfer-box
+      ul.mainScreen__tabs.tabs 
+        li.tabs__item.tabs__item_active
+          +icon('arrow', 'tabs__icon tabs__icon_rotate_out') 
+          button(type="button").tabs__btn Отправить деньги
+        li.tabs__item
+          +icon('arrow', 'tabs__icon tabs__icon_rotate_in')
+          button(type="button").tabs__btn Получить деньги
+        li.tabs__item
+          +icon('card', 'tabs__icon')
+          button(type="button").tabs__btn Дебетовая карта
+      form(name="transferMoney").mainScreen__form.form
+        .form__group
+          label(for="sum").form__label Вы отправляете
+          input(type="text" id="sum" value="1,000").form__input
+          ul.form__select
+            li.form__select-item.form__select-item_active
+              +icon('eur', 'form__select-icon') 
+              span.form__select-currency EUR 
+            li.form__select-item
+              +icon('gbp', 'form__select-icon') 
+              span.form__select-currency GBP
+            li.form__select-item
+              +icon('usd', 'form__select-icon')
+              span.form__select-currency USD  
+        ul.form__list
+          li.form__list-item 
+            span(aria-hidden="true").form__list-icon -
+            span.form__list-sum.form__list-sum_bold 0.74 EUR
+            button(type="button").form__list-btn Быстрый и удобный перевод
+            span.form__list-text комиссия
+          li.form__list-item
+            span(aria-hidden="true").form__list-icon .
+            span.form__list-sum 975.74 EUR
+            span.form__list-text Конвертируемая сумма
+          li.form__list-item
+            span(aria-hidden="true").form__list-icon х
+            span.form__list-sum 31.86
+            span.form__list-text.form__list-text_under Гарантированный курс (48 часов)
+        .form__group
+          label(for="sum").form__label Получатель получит
+          input(type="text" id="sum" value="1,000").form__input
+          ul.form__select
+            li.form__select-item.form__select-item_active 
+              +icon('uah', 'form__select-icon')
+              span.form__select-currency UAH 
+            li.form__select-item
+              +icon('gbp', 'form__select-icon') 
+              span.form__select-currency GBP 
+            li.form__select-item
+              +icon('usd', 'form__select-icon') 
+              span.form__select-currency USD 
+        p.form__date Должны поступить: 
+          strong янв 31
+        .form__controls
+          a(href="#").btn.btn_color_green.form__controls-item Сравнить цены
+          a(hre="#").btn.btn_color_blue.form__controls-item Начать перевод
+            
+      
+    
+    
+      

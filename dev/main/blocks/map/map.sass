@@ -1,0 +1,96 @@
+.s-map
+  text-align: center
+  &__press
+    margin-top: 50px
+
+
+.map
+  background: url(../../static/img/general/transferMap-light.png) center no-repeat
+  background-size: contain
+  min-height: 610px
+  position: relative
+  &__text
+    font-size: 12px
+    font-weight: 600
+    display: block
+    color: #fff
+    padding: 5px
+    border-radius: 5px
+    background-color: $accentColor
+    white-space: nowrap
+    &:not(:last-child)
+      margin-bottom: 4px
+    &_dark
+      background-color: $mainColorDarken
+
+
+
+
+  &__item-inner
+    width: auto
+    height: auto
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateY(-50%)
+    padding-left: 20px
+    opacity: 0
+    transition: opacity .4s ease-in
+  &__item-marker
+    width: 6px
+    height: 6px
+    display: inline-block
+    border-radius: 50%
+    background-color: $mainColorDarken
+    position: absolute
+    left: 0
+    top: 50%
+    margin-top: -3px
+    box-shadow: 0px 0px 0px 1px $mainColor
+    transition: box-shadow .4s linear
+  &__item
+    position: absolute
+    &_active &-inner
+      opacity: 1
+    &_active &-marker
+      box-shadow: 0px 0px 28px 10px $mainColor
+    &_brazil
+      width: 10%
+      height: 21%
+      bottom: 21%
+      left: 27%
+    &_rus
+      right: 17%
+      top: 23%
+      width: 30%
+      height: 25%
+    &_usa
+      width: 15%
+      height: 15%
+      left: 15%
+      top: 33%
+
+.press
+  display: flex
+  justify-content: center
+  text-align: center
+  padding: 20px 0
+  margin-left: -18px
+  margin-right: -18px
+  flex-wrap: wrap
+  &__item
+    flex: 0 1 300px
+    margin: 0 18px
+    &.wired .press__cite
+      background: url('../../static/img/general/press-wired.svg') center no-repeat
+      background-size: auto
+    &.times .press__cite
+      background: url('../../static/img/general/press-financial-times.svg') center no-repeat
+      background-size: auto
+    &.economist .press__cite
+      background: url('../../static/img/general/press-the-economist.svg') center no-repeat
+      background-size: auto
+  &__cite
+    width: 100%
+    height: 60px
+    display: inline-block

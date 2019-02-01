@@ -1,0 +1,165 @@
+body
+  font-family: Arial, sans-serif
+.wrapper
+  width: 100%
+  max-width: 1024px
+  margin: 0 auto
+.hidden-text
+  position: absolute
+  left: -10000px
+  top: auto
+  width: 1px
+  height: 1px
+  overflow: hidden
+.btn
+  display: inline-block
+  min-height: 48px
+  padding: 12px 24px 10px
+  box-sizing: border-box
+  font-size: 16px
+  font-weight: 600
+  line-height: 24px
+  text-align: center
+  border-radius: 3px
+  color: #fff
+  &_color
+    &_clear
+      border: 1px solid $accentColor
+      color: $accentColor
+    &_green
+      background-color: #2ed06e
+      color: #fff
+    &_blue
+      background-color: $accentColor
+      color: #fff
+  &_sm
+    min-height: 32px
+    padding: 4px 16px 2px
+    font-size: 14px
+    background-color: rgba(255,255,255,0.4)
+    border-radius: 2px
+
+.tabs
+  display: flex
+  &__item
+    padding: 24px 12px
+    flex: 1
+    text-align: center
+    background-color: $mainColorDarken
+    cursor: pointer
+    &:not(:first-child)
+      border-left: 1px solid #253655
+    &_active
+      background-color: $mainColor
+  &__icon
+    width: 25px
+    height: 25px
+    display: block
+    margin: 0 auto 9px
+    fill: #fff
+    &_rotate
+      &_in
+        transform: rotate(228deg)
+      &_out
+        transform: rotate(45deg)
+  &__btn
+    font-size: 16px
+    color: #fff
+    font-weight: 600
+
+.form
+  padding: 40px
+  background-color: $mainColor
+  &__group
+    display: flex
+    border-radius: 3px
+    position: relative
+    overflow: hidden
+  &__input
+    $offsetHorisontal: 13px !global
+    padding: 38px $offsetHorisontal 10px
+    flex: 1
+    background-color: #fff
+    font-size: 22px
+    line-height: 32px
+    color: $mainColorDarken
+  &__label
+    position: absolute
+    top: 14px
+    left: $offsetHorisontal
+    font-size: 14px
+    line-height: 20px
+    color: #5d7079
+  &__select-item
+    padding: 25px 49px 25px 16px
+    background-color: $mainColorDarken
+    display: none
+    &_active
+      display: block
+  &__select-icon
+    width: 25px
+    height: 20px
+    margin-right: 9px
+    vertical-align: middle
+  &__select-currency
+    font-size: 20px
+    line-height: 32px
+    font-weight: 600
+    color: #fff
+    vertical-align: middle
+  &__list
+    padding: 20px 0
+    font-size: 16px
+    color: #d3d5d8
+    position: relative
+    &::before
+      content: ''
+      height: 100%
+      width: 2px
+      background-color: $mainColorDarken
+      position: absolute
+      top: 0
+      left: 11.5px
+      z-index: 1
+    &-item
+      &:not(:last-child)
+        margin-bottom: 20px
+    &-icon
+      $size: 23px
+      display: inline-block
+      width: $size
+      height: $size
+      line-height: $size
+      border-radius: 50%
+      margin-right: 10px
+      background-color: $mainColorDarken
+      text-align: center
+      color: #fff
+      position: relative
+      z-index: 2
+    &-sum
+      margin-right: 31px
+      &_bold
+        color: #fff
+        font-weight: 600
+    &-text
+      &_under
+        border-bottom: 1px dotted $accentColor
+    &-btn
+      height: 31px
+      line-height: 31px
+      padding: 0 13px
+      color: #fff
+      border-radius: 2px
+      background-color: $mainColorDarken
+  &__date
+    margin: 22px 0
+    strong
+      font-weight: 600
+  &__controls
+    display: flex
+    text-align: center
+    margin: 0 -12px
+    &-item
+      flex: 1
+      margin: 0 12px

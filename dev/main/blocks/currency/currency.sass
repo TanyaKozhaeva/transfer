@@ -1,0 +1,109 @@
+.section
+  padding: 118px 0 65px
+  background-color: #f2f5f7
+  &_flex
+    .wrapper
+      display: flex
+      & > *
+        width: 50%
+        box-sizing: border-box
+  &__pic-wrap
+    &_padding
+      padding: 0 15% 20px 0
+  &__title
+    margin-bottom: 1em
+  &_safe &__title
+    margin-top: 100px
+  &__text
+    font-size: 16px
+    font-weight: 500
+    line-height: 1.4
+    color: #829ca9
+    &_size
+      &_sm
+        font-size: 14px
+
+.text
+  font-size: 16px
+  font-weight: 500
+  line-height: 1.4
+  color: #829ca9
+  &_size
+    &_sm
+      font-size: 14px
+  &_color
+    &_light
+      color: #fff
+  &__link
+    font-weight: 600
+    color: $accentColor
+    text-decoration: underline
+.title
+  font-size: 2em
+  line-height: 1.2
+  font-weight: 800
+  color: $mainColorDarken
+  &_color
+    &_lighten
+      color: $accentColor
+    &_light
+      color: #fff
+
+.safe
+  width: 100%
+  padding-top: 100%
+  position: relative
+  &__pic-border-dot
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    border: 2px dashed $accentColor
+  &__pic-text-wrap-border-solid
+    width: 70%
+    height: 70%
+    border-radius: 50%
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    border: 3px solid $accentColor
+    box-shadow: 0 2px 80px 0 rgba(0,0,0,0.2)
+  &__text-wrap
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 1
+  &__text
+    display: block
+    text-align: center
+    text-transform: uppercase
+    font-weight: 500
+    &_sm
+      font-size: 9px
+      line-height: 2
+      color: #829ca9
+    &_main
+      font-size: 28px
+      line-height: 1.3
+      color: $accentColor
+  &__text-icon
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    fill: #829ca9
+    z-index: -1
+
+  &__icon
+    width: 30px
+    height: 36px
+    fill: $mainColor
+    position: absolute
+    bottom: 0
+    left: 50%
+    margin-left: -15px
+    margin-bottom: -18px
