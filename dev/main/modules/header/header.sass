@@ -3,43 +3,216 @@
   background-color: $mainColor
   &__wrap
     display: flex
-    justify-content: center
+    justify-content: space-between
     align-items: center
     height: 100%
   &__logo
     width: 118px
     height: 24px
+    flex-shrink: 0
     margin-right: 3%
+    fill: $accentColor
+    margin-top: -11px
+    @media screen and (max-width: 1024px)
+      margin-right: auto
+      margin-left: 10px
+      margin-top: 0
+
   &__navbar
     display: flex
     align-items: center
     height: 100%
+    @media screen and (max-width: 1024px)
+      background-color: rgba(0, 0, 0, .8)
+
   &__nav
     height: 100%
     margin-right: 2%
-  &__enter-btn
-    font-size: 1em
-    font-weight: 400
-    color: #fff
-    margin-right: 2%
+    @media screen and (max-width: 1024px)
+      width: 284px
 
+  &__sandwich-btn
+    @media screen and (min-width: 1025px)
+      display: none
+  &__btn
+    margin-left: 10px
 
 .nav
-  display: flex
-  align-items: center
   color: #fff
-  &__link
-    padding: .5em 1.5em .5em 1em
-    position: relative
+  @media screen and (max-width: 1024px)
+    color: $mainColorDarken
+    position: fixed
+    left: 0
+    top: 0
+    height: 100%
+    z-index: 5000
+    width: 100%
+    transition: transform .15s ease
+    transform: translateX(-110%)
+    &_open
+      transform: translateX(0px)
+
+  &__wrap
+    display: flex
+    align-items: center
+    @media screen and (max-width: 1024px)
+      flex-direction: column
+      overflow-y: auto
+      background-color: #fff
+      transition: transform .35s ease
+      transform: translateX(-100%)
+      .nav_open &
+        transform: translateX(0px)
+  &__close
+    font-size: 30px
+    font-weight: 600
+    color: $accentColor
+    position: absolute
+    top: 12px
+    left: 294px
+    @media screen and (min-width: 1025px)
+      display: none
+  &__item
+    height: 100%
     font-size: .8em
     font-weight: 400
+    position: relative
+    transition: color .2s ease-in
+    @media screen and (min-width: 1025px)
+      &:hover .submenu
+        display: block
+        animation: subVisible .3s
+    @media screen and (max-width: 1024px)
+      font-size: 1.2em
+      width: 100%
+      height: auto
+      border-bottom: 1px solid #f2f5f7
+      &_active .submenu
+        height: auto
+        animation: subScaleY .3s
+    &:hover
+      color: $accentColor
+    &:hover .nav__icon
+      fill: $accentColor
+  &__link
+    display: inline-block
+    height: 100%
+    padding: .5em 1.5em .5em 1em
+    position: relative
     white-space: nowrap
-    &::after
-      content: '>'
-      font-size: 1em
-      font-weight: 600
-      color: inherit
+    box-sizing: border-box
+    @media screen and (max-width: 1024px)
+      width: 100%
+      height: 56px
+      line-height: 40px
+      text-align: left
+
+  &__text
+    position: relative
+  &__icon
+    width: 13px
+    height: 13px
+    fill: #fff
+    vertical-align: middle
+    transform: rotate(90deg)
+    transition: fill .2s ease-in
+    @media screen and (max-width: 1024px)
+      fill: $mainColorDarken
+
+.submenu
+  min-width: 160px
+  padding: 8px
+  border-radius: 3px
+  background-color: #fff
+  position: absolute
+  top: 76px
+  right: 0
+  z-index: 200
+  transition: all .3s ease-in-out
+  transform-origin: top
+  @media screen and (min-width: 1025px)
+    display: none
+  @media screen and (max-width: 1024px)
+    position: static
+    height: 0px
+    padding: 0
+    overflow: hidden
+    transform-origin: top
+  @media screen and (min-width: 1025px)
+    &::before
+      content: ''
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 4px 8px 4px
+      border-color: transparent transparent #ffffff transparent
       position: absolute
-      top: 50%
-      right: 0
-      transform: translateY(-50%) rotate(90deg)
+      top: 0
+      margin-top: -7px
+      right: 22px
+  &__link
+    display: block
+    font-size: 14px
+    line-height: 24px
+    white-space: nowrap
+    padding: 13px 19px 11px
+    border-radius: 3px
+    color: $mainColor
+    transition: all .2s ease-in
+    &:focus,
+    &:hover
+      background-color: #f2f5f7
+
+@keyframes subVisible
+  0%
+    transform: scale(0.9)
+    opacity: 0
+  100%
+    transform: scale(1)
+    opacity: 1
+
+@keyframes subScaleY
+  0%
+    transform: scaleY(0.00005)
+  100%
+    transform: scaleY(1)
+
+
+
+.toggle-navigation-btn
+	height: 1.8em
+	position: relative
+	&_closed &__line
+		background-color: transparent
+		&::before
+			top: 0
+			background-color: #fff
+			transform: rotate(136deg)
+		&::after
+			bottom: 0
+			background-color: #fff
+			transform: rotate(45deg)
+
+
+	&__line
+		display: inline-block
+		width: 2rem
+		height: 1px
+		background-color: $accentColor
+		vertical-align: middle
+		position: relative
+		&::before,
+		&::after
+			content: ''
+			display: inline-block
+			width: inherit
+			height: inherit
+			background-color: inherit
+			position: absolute
+			transition: rotate 1s
+		&::before
+			top: .55rem
+			left: 0
+		&::after
+			bottom: .55rem
+			left: 0

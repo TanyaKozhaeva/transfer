@@ -1,4 +1,8 @@
 section.video
-  h2.video__title.title.title_color_light Что говорят наши клиенты
-  video(poster="static/img/content/testimonials-video-silent-poster.jpg" controls preload="none" loop).video__file
+  .video__attributes
+    h2.video__title.title.title_color_light Что говорят наши клиенты
+    button(type="button" title="play")#playBtn.video__playBtn
+      +icon('play-button', 'video__playBtn-icon')
+  button(type="button" title='pause')#pauseBtn.video__pauseBtn.video__pauseBtn_hidden ||
+  video(poster="static/img/content/testimonials-video-silent-poster.jpg" controls preload="none" loop)#video.video__file
     source(src="static/video/testimonials-video.mp4" type="video/mp4")

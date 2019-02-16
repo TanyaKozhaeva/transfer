@@ -1,15 +1,35 @@
 .section
   padding: 118px 0 65px
   background-color: #f2f5f7
+  @media screen and (max-width: 1024px)
+    padding: 46px 0
+  @media screen and (max-width: 880px)
+    padding: 36px 0
   &_flex
     .wrapper
       display: flex
       & > *
         width: 50%
         box-sizing: border-box
+        padding-left: 16px
+        padding-right: 16px
+      @media screen and (max-width: 1024px)
+        display: block
+        & > *
+          width: 100%
+          text-align: center
+          padding-left: 0 !important
+          padding-right: 0 !important
   &__pic-wrap
-    &_padding
-      padding: 0 15% 20px 0
+    & img
+      width: 100%
+      max-width: 462px
+      height: auto
+    & > *
+      margin-bottom: 16px
+    @media screen and (max-width: 1024px)
+      & .safe
+        margin: 0 auto
   &__title
     margin-bottom: 1em
   &_safe &__title
@@ -23,35 +43,9 @@
       &_sm
         font-size: 14px
 
-.text
-  font-size: 16px
-  font-weight: 500
-  line-height: 1.4
-  color: #829ca9
-  &_size
-    &_sm
-      font-size: 14px
-  &_color
-    &_light
-      color: #fff
-  &__link
-    font-weight: 600
-    color: $accentColor
-    text-decoration: underline
-.title
-  font-size: 2em
-  line-height: 1.2
-  font-weight: 800
-  color: $mainColorDarken
-  &_color
-    &_lighten
-      color: $accentColor
-    &_light
-      color: #fff
-
 .safe
-  width: 100%
-  padding-top: 100%
+  width: 70%
+  padding-top: 70%
   position: relative
   &__pic-border-dot
     position: absolute

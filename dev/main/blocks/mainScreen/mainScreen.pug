@@ -1,9 +1,9 @@
 section.mainScreen
   .wrapper
     .mainScreen__text-box
-      h1.mainScreen__title Bye bye bank feels, hello world 
-        span.mainScreen__title-dot .
-      p.mainScreen__text При международных переводах банки берут до 5% так называемой скрытой комиссии. По итогам опросовб переводы с TransferWise 
+      h1.mainScreen__title 
+        !='Bye bye bank feels, hello world<span class="mainScreen__title-dot">.</span>'
+      p.mainScreen__text При международных переводах банки берут до 5% так называемой скрытой комиссии. По итогам опросов переводы с TransferWise 
         a(href="#" target="blank") дешевле в 8 раз.
         span  Все честно.
       a(href="#").btn.btn_color_clear.mainScreen__btn Принцип работы
@@ -20,63 +20,113 @@ section.mainScreen
             a(href="#" target="blank").mainScreen__promo-link Подробнее на Trastpoint
         
     .mainScreen__transfer-box
-      ul.mainScreen__tabs.tabs 
-        li.tabs__item.tabs__item_active
-          +icon('arrow', 'tabs__icon tabs__icon_rotate_out') 
-          button(type="button").tabs__btn Отправить деньги
+      ul.mainScreen__tabs.tabs#tabs
         li.tabs__item
-          +icon('arrow', 'tabs__icon tabs__icon_rotate_in')
-          button(type="button").tabs__btn Получить деньги
+          button(type="button" data-tab="send-money").tabs__btn.tabs__btn_active
+            +icon('arrow', 'tabs__icon tabs__icon_rotate_out') 
+            span.tabs__btn-text Отправить деньги
+        li.tabs__item    
+          button(type="button" data-tab='get-money').tabs__btn 
+            +icon('arrow', 'tabs__icon tabs__icon_rotate_in')
+            span.tabs__btn-text Получить деньги
         li.tabs__item
-          +icon('card', 'tabs__icon')
-          button(type="button").tabs__btn Дебетовая карта
-      form(name="transferMoney").mainScreen__form.form
-        .form__group
-          label(for="sum").form__label Вы отправляете
-          input(type="text" id="sum" value="1,000").form__input
-          ul.form__select
-            li.form__select-item.form__select-item_active
-              +icon('eur', 'form__select-icon') 
-              span.form__select-currency EUR 
-            li.form__select-item
-              +icon('gbp', 'form__select-icon') 
-              span.form__select-currency GBP
-            li.form__select-item
-              +icon('usd', 'form__select-icon')
-              span.form__select-currency USD  
-        ul.form__list
-          li.form__list-item 
-            span(aria-hidden="true").form__list-icon -
-            span.form__list-sum.form__list-sum_bold 0.74 EUR
-            button(type="button").form__list-btn Быстрый и удобный перевод
-            span.form__list-text комиссия
-          li.form__list-item
-            span(aria-hidden="true").form__list-icon .
-            span.form__list-sum 975.74 EUR
-            span.form__list-text Конвертируемая сумма
-          li.form__list-item
-            span(aria-hidden="true").form__list-icon х
-            span.form__list-sum 31.86
-            span.form__list-text.form__list-text_under Гарантированный курс (48 часов)
-        .form__group
-          label(for="sum").form__label Получатель получит
-          input(type="text" id="sum" value="1,000").form__input
-          ul.form__select
-            li.form__select-item.form__select-item_active 
-              +icon('uah', 'form__select-icon')
-              span.form__select-currency UAH 
-            li.form__select-item
-              +icon('gbp', 'form__select-icon') 
-              span.form__select-currency GBP 
-            li.form__select-item
-              +icon('usd', 'form__select-icon') 
-              span.form__select-currency USD 
-        p.form__date Должны поступить: 
-          strong янв 31
-        .form__controls
-          a(href="#").btn.btn_color_green.form__controls-item Сравнить цены
-          a(hre="#").btn.btn_color_blue.form__controls-item Начать перевод
-            
+          button(type="button" data-tab='debit-card').tabs__btn
+            +icon('card', 'tabs__icon')
+            span.tabs__btn-text Дебетовая карта
+      .tabs-content-box
+        form(name="transferMoney" id='send-money').tabs-content.tabs-content_active.mainScreen__form.form
+          .form__group
+            label(for="sumFrom").form__label Вы отправляете
+            input(type="text" id="sumFrom" value="1,000").form__input
+            button(type="button").form__choose-btn
+                span.form__choose-text EUR
+            .choose-currency.form__choose-currency
+              header.choose-currency__header
+                label(for="search-currency").hidden-text Выберите валюту
+                input(type="search" name="search-currency" id="search-currency" placeholder="Выберите валюту").choose-currency__input
+                h2.choose-currency__title Популярные валюты
+              ul.choose-currency__list
+                li(data-currency="EUR").choose-currency__item.choose-currency__item_chosen 
+                  span.choose-currency__icon.choose-currency__icon_eur.eur-icon
+                  span.choose-currency__text EUR
+                li(data-currency="UAH").choose-currency__item 
+                  span.choose-currency__icon.choose-currency__icon_uah.uah-icon
+                  span.choose-currency__text UAH
+                li(data-currency="GBP").choose-currency__item 
+                  span.choose-currency__icon.choose-currency__icon_gbp.gbp-icon
+                  span.choose-currency__text GBP
+                li(data-currency="USD").choose-currency__item 
+                  span.choose-currency__icon.choose-currency__icon_usd.usd-icon 
+                  span.choose-currency__text USD
+          ul.form__list
+            li.form__list-item 
+              span(aria-hidden="true").form__list-icon -
+              span.form__list-sum.form__list-sum_bold 0.74 EUR
+              button(type="button").form__list-btn Быстрый перевод
+            li.form__list-item
+              span(aria-hidden="true").form__list-icon
+              span.form__list-sum 975.74 EUR
+              span.form__list-text Конвертируемая сумма
+            li.form__list-item
+              span(aria-hidden="true").form__list-icon х
+              span.form__list-sum 31.86
+              span.form__list-text.form__list-text_under Гарантированный курс
+          .form__group
+            label(for="sumTo").form__label Получатель получит
+            input(type="text" id="sumTo" value="1,000").form__input
+            button(type="button").form__choose-btn
+                span.form__choose-text UAH
+            .choose-currency.form__choose-currency
+              header.choose-currency__header
+                label(for="search-currency").hidden-text Выберите валюту
+                input(type="search" name="search-currency" id="search-currency" placeholder="Выберите валюту").choose-currency__input
+                h2.choose-currency__title Популярные валюты
+              ul.choose-currency__list
+                li(data-currency="EUR").choose-currency__item
+                  span.choose-currency__icon.choose-currency__icon_eur 
+                  span.choose-currency__text EUR
+                li(data-currency="UAH").choose-currency__item.choose-currency__item_chosen  
+                  span.choose-currency__icon.choose-currency__icon_uah
+                  span.choose-currency__text UAH
+                li(data-currency="USD").choose-currency__item 
+                  span.choose-currency__icon.choose-currency__icon_usd 
+                  span.choose-currency__text USD
+          p.form__date Должны поступить: 
+            strong янв 31
+          .tabs-content__controls
+            a(href="#").btn.btn_color_green.tabs-content__controls-item Сравнить цены
+            a(href="#").btn.btn_color_blue.tabs-content__controls-item Начать перевод
+        .tabs-content(id='get-money') 
+          p.tabs-content__title.title.title_color_light Прощайте зарубежные банковские счета!
+          p.tabs-content__text.text.text_color_light Активируйте мультивалютный счет TransferWise и получайте деньги со вcего мира с нулевой комиссией.
+          ul.tabs-content__slider.currency-slider
+            li.currency-slider__item 
+              span.currency-slider__icon.eur-icon
+              span.currency-slider__currency-name EUR
+            li.currency-slider__item 
+              span.currency-slider__icon.uah-icon
+              span.currency-slider__currency-name UAH 
+            li.currency-slider__item 
+              span.currency-slider__icon.gbp-icon
+              span.currency-slider__currency-name GBP
+            li.currency-slider__item
+              span.currency-slider__icon.usd-icon
+              span.currency-slider__currency-name USD
+          .tabs-content__controls
+            a(href="#").btn.btn_color_clear.tabs-content__controls-item Посмотреть видео
+            a(href="#").btn.btn_color_green.tabs-content__controls-item Создать счет
+        .tabs-content(id='debit-card') 
+          p.tabs-content__title.title.title_color_light 
+            != 'Дебетовая карта <span>TransferWise Mastercard®</span>'
+          p.tabs-content__text.text.text_color_light Тратьте деньги по всему миру с низкой комиссией и нулевыми сборами за транзакции.
+          .tabs-content__pic
+            picture
+              sourse(srcset="static/img/general/credit-card.png, static/img/general/credit-card-retina.png 2x")
+              img(src="static/img/general/credit-card.png" alt="Credit card image")
+          .tabs-content__controls
+            a(href="#").btn.btn_color_clear.tabs-content__controls-item Посмотреть видео
+            a(href="#").btn.btn_color_green.tabs-content__controls-item Создать счет
+  
       
     
     

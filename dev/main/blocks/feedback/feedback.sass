@@ -2,15 +2,21 @@
   padding: 96px 0
   text-align: center
   background-color: $accentColor
+  @media screen and (max-width: 1024px)
+    padding: 46px 0
   &__title
     margin-bottom: 6px
   &__text
     margin-bottom: 26px
   &__slider
-    max-width: 726px
+    max-width: 1024px
     margin: 0 auto 57px
+    @media screen and (max-width: 880px)
+      margin-bottom: 25px
+
 
 .slider
+  position: relative
   &__item
     text-align: center
     padding: 35px 30px 30px
@@ -34,22 +40,24 @@
     fill: $accentColor
     &:not(:last-child)
       margin: 0 7px
-
-//SLICK CUSTOM
-.slick-prev
-  left: -96px
-.slick-next
-  right: -96px
-
-.slick-prev:before
-  content: '<'
-  font-size: 54px
-  font-weight: 600
-
-.slick-next:before
-  content: '>'
-  font-size: 54px
-  font-weight: 600
-
-.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before
-  opacity: 0
+  &__prev-btn,
+  &__next-btn
+    position: absolute
+    top: 50%
+    margin-top: -15px
+    z-index: 200
+    opacity: .8
+    &:hover
+      opacity: 1
+    &.slick-disabled
+      cursor: default
+      opacity: .5
+  &__prev-btn
+    left: 0
+    transform: rotate(180deg)
+  &__next-btn
+    right: 0
+  &__icon
+    width: 30px
+    height: 30px
+    fill: #fff

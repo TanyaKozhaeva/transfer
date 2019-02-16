@@ -1,9 +1,53 @@
 .video
   position: relative
+  @media screen and (max-width: 1024px)
+    display: none
   &__file
     width: 100%
-  &__title
+    height: 100%
+    margin-bottom: -3px
+  &__attributes
     position: absolute
     top: 40%
     left: 50%
     transform: translateX(-50%)
+    z-index: 200
+    text-align: center
+  &__title
+    margin-bottom: 20px
+    opacity: 1
+    transition: opacity .3s linear
+    &_hidden
+      opacity: 0
+  &__playBtn
+    $sizeVideoBtn: 80px !global
+    width: $sizeVideoBtn
+    height: $sizeVideoBtn
+    border-radius: 50%
+    background-color: $accentColor
+    opacity: 1
+    transition: opacity .3s linear
+    & .icon
+      width: 40px
+      height: 40px
+      margin-top: 5px
+      margin-left: 5px
+      fill: #fff
+    &:hover
+      opacity: .8
+    &_hidden
+      visibility: hidden
+  &__pauseBtn
+    width: $sizeVideoBtn
+    height: $sizeVideoBtn
+    border-radius: 50%
+    border: 1px solid $accentColor
+    font-size: 30px
+    font-weight: 600
+    color: #fff
+    position: absolute
+    top: 20px
+    right: 20px
+    z-index: 200
+    &_hidden
+      @extend .video__playBtn_hidden

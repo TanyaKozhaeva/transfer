@@ -4,33 +4,38 @@ section.section-feedbacks
     p.section-feedbacks__text.text.text_color_light
       != 'Не соглашайтесь на меньшее - это ведь Ваши деньги. Ознакомиться со всеми отзывами можно на <a href="#" target="blank">Trastpilot.com</a>'
     .section-feedbacks__slider.slider
-      blockquote(cite="https://site.org").slider__item
-          p.slider__title Bashbir Ltd, 11 minutes ago
-          p.slider__text "It'excellent."
-          .slider__rating
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-      blockquote(cite="https://site.org").slider__item
-          p.slider__title Jenifer Keunzle, 13 minutes ago
-          p.slider__text "Easy to use. Transparent relative to feels.Would use again"
-          .slider__rating
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-      blockquote(cite="https://site.org").slider__item
-          p.slider__title Fabio Castro, 14 minutes ago
-          p.slider__text "Good Service"
-          .slider__rating
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
-            +icon('star', 'slider__rating-item')
+      button(type="button").slider__prev-btn
+        +icon('arrow-main', 'slider__icon')
+      button(type="button").slider__next-btn
+        +icon('arrow-main', 'slider__icon')
+      .slider__feedback-slides
+        blockquote(cite="https://site.org").slider__item
+            p.slider__title Bashbir Ltd, 11 minutes ago
+            p.slider__text "It'excellent."
+            .slider__rating
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+        blockquote(cite="https://site.org").slider__item
+            p.slider__title Jenifer Keunzle, 13 minutes ago
+            p.slider__text "Easy to use. Transparent relative to feels.Would use again"
+            .slider__rating
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+        blockquote(cite="https://site.org").slider__item
+            p.slider__title Fabio Castro, 14 minutes ago
+            p.slider__text "Good Service"
+            .slider__rating
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
+              +icon('star', 'slider__rating-item')
     p.section-feedbacks__text.text.text_color_light
       !='Отывы на <a href="#" target="blank">Trustpilot</a>'
           

@@ -1,19 +1,82 @@
 header.header
   .wrapper.header__wrap
+    button(type="button").header__sandwich-btn.toggle-navigation-btn#toggle-navigation-btn
+      span.hidden-text Open navigation
+      span.toggle-navigation-btn__line
     +icon('logo', 'logo header__logo')
-    nav.header__navbar
-      ul.nav.header__nav
+    
+    nav.nav.header__navbar#mainNav
+      ul.nav__wrap.header__nav
         li.nav__item
-          button(type="button").nav__link Отправить деньги
+          button(type="button").nav__link 
+            span.nav__text Отправить деньги
+            +icon('arrow-main', 'nav__icon')
+          ul.nav__submenu.submenu  
+            li.submenu__item 
+              a(href="#").submenu__link Отправить деньги
+            li.submenu__item 
+              a(href="#").submenu__link Получить реальный обменный курс
+            li.submenu__item 
+              a(href="#").submenu__link Как это работает 
+            li.submenu__item 
+              a(href="#").submenu__link Цены
         li.nav__item
-          button(type="button").nav__link Получить деньги
+          button(type="button").nav__link   
+            span.nav__text Получить деньги
+            +icon('arrow-main', 'nav__icon')
+          ul.nav__submenu.submenu  
+            li.submenu__item 
+              a(href="#").submenu__link Отправить деньги
+            li.submenu__item 
+              a(href="#").submenu__link Получить реальный обменный курс
+            li.submenu__item 
+              a(href="#").submenu__link Как это работает 
+            li.submenu__item 
+              a(href="#").submenu__link Цены
         li.nav__item
-          button(type="button").nav__link Дебетовая карта
+          button(type="button").nav__link 
+            span.nav__text Дебетовая карта
+            +icon('arrow-main', 'nav__icon')
+          ul.nav__submenu.submenu  
+            li.submenu__item 
+              a(href="#").submenu__link Отправить деньги
+            li.submenu__item 
+              a(href="#").submenu__link Получить реальный обменный курс
+            li.submenu__item 
+              a(href="#").submenu__link Как это работает 
+            li.submenu__item 
+              a(href="#").submenu__link Цены
         li.nav__item
-          button(type="button").nav__link Бизнес
+          button(type="button").nav__link 
+            span.nav__text Бизнес
+            +icon('arrow-main', 'nav__icon')
+          ul.nav__submenu.submenu  
+            li.submenu__item 
+              a(href="#").submenu__link Отправить деньги
+            li.submenu__item  
+              a(href="#").submenu__link Получить реальный обменный курс
+            li.submenu__item 
+              a(href="#").submenu__link Как это работает 
+            li.submenu__item 
+              a(href="#").submenu__link Цены
         li.nav__item
-          button(type="button").nav__link Подробнее
-      a(href="#").header__enter-btn Войти
-      a(href="#").btn.btn_sm.header__btn Регистрация
+          button(type="button").nav__link 
+            span.nav__text Подробнее
+            +icon('arrow-main', 'nav__icon')
+          ul.nav__submenu.submenu  
+            li.submenu__item 
+              a(href="#").submenu__link Отправить деньги
+            li.submenu__item 
+              a(href="#").submenu__link Получить реальный обменный курс
+            li.submenu__item 
+              a(href="#").submenu__link Как это работает 
+            li.submenu__item 
+              a(href="#").submenu__link Цены
+        li.nav__item
+          button.nav__link Войти 
+      button(type="button").nav__close#navCloseBtn 
+        span.hidden-text Close navigation
+        span.nav__close-icon x
+    a(href="#").btn.btn_sm.header__btn Регистрация
     
       
