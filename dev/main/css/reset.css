@@ -59,9 +59,21 @@ form{
 textarea {
   resize: none;
 }
+input[type="text"],
+input[type="submit"],
+input[type="search"],
+textarea{
+	-webkit-appearance: none;
+}
 button{
 	cursor: pointer;
 	background-color: transparent;
+}
+button::-moz-focus-inner {
+	border: 0;
+}
+a:focus {
+	outline: none;
 }
 a, button {
 	color: inherit;

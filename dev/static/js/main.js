@@ -1,7 +1,15 @@
 ;
 svg4everybody();
 
-
+/*
+$(window).on("load", function(){
+  console.log('load')
+  var sections = $('.section');
+  sections.each(function(){
+    $(this).addClass('section_active')
+  })
+});
+*/
 
 //SLIDER
 $('.slider__feedback-slides').slick({
@@ -9,7 +17,6 @@ $('.slider__feedback-slides').slick({
   prevArrow: '.slider__prev-btn',
   nextArrow: '.slider__next-btn'
 });
-
 
 
 //DROPDOWN
@@ -46,20 +53,6 @@ mainNav.onclick = function(e) {
   }
 }
 }());
-/*
-//CUSTOM SCROLL
-function setCustomScrollonMobile(){
-  var objectToScroll = document.querySelectorAll('.js-custom-scroll');
-  var simplebarObj;
-  if(window.innerWidth <= 1024){
-    simplebarObj = new SimpleBar(objectToScroll[0]);
-    //simplebarObj.recalculate();
-  }
-}
-window.addEventListener('load', setCustomScrollonMobile);
-window.addEventListener('resize', setCustomScrollonMobile);
-
-*/
 
 //TABS
 (function(){
@@ -93,8 +86,6 @@ window.addEventListener('resize', setCustomScrollonMobile);
 }());
 
 
-
-
 //CHOOSE CURRENCY
 (function(){
   var chooseCurrencyBtns = document.querySelectorAll('.form__choose-btn');
@@ -113,9 +104,6 @@ window.addEventListener('resize', setCustomScrollonMobile);
   [].forEach.call(currencyItemsContainer, function(item){
     item.onclick = chooseCurrency(item);
   })
-
-
-
   function chooseCurrency(container){
     var allCurrencyItems = container.querySelectorAll('.choose-currency__item');
     [].forEach.call(allCurrencyItems, function(item){
@@ -133,8 +121,6 @@ window.addEventListener('resize', setCustomScrollonMobile);
     })
 
   }
-
-
   function getChosenCurrencyDetails(item){
     var data = item.getAttribute('data-currency');
     while(!item.classList.contains('form__group')){
@@ -145,11 +131,7 @@ window.addEventListener('resize', setCustomScrollonMobile);
     item.classList.remove('form__group_active');
 
   }
-
-
 }());
-
-
 
 
 //SHOW TRANSAKTIONS ON THE MAP
@@ -170,7 +152,7 @@ window.addEventListener('resize', setCustomScrollonMobile);
         } else {
           x = 0;
         }
-        setTimeout(shown, Math.random() * 5000);
+        setTimeout(shown, Math.random() * 2000);
       }, 2000);
 
     }, Math.random() * 5000)
@@ -198,4 +180,82 @@ window.addEventListener('resize', setCustomScrollonMobile);
     videoPlayBtn.classList.remove('video__playBtn_hidden');
     video.pause();
   };
+}());
+
+
+//FORM VALIDATION
+(function () {
+        $('.user-form').each(function () {
+            $(this).on('submit', function () {
+                $(this).validate({
+                    rules: {
+                        email: 'required',
+                        password: 'required'
+                    },
+                    messages: {
+                        email: 'Введите корректный email',
+                        password: 'Введите корректный пароль'
+                    },
+                    errorPlacement: function (error, element) {
+                        element.attr("placeholder", error[0].outerText);
+                    }
+                });
+              /*  if ($(this).valid()) {
+                    let wrap = $(this)[0].closest('.form-hide-on-success');
+                    console.log(wrap);
+                    if (wrap) {
+                        $(wrap).siblings('.form-success').show();
+                        $(wrap).hide();
+                    }
+                }*/
+              if($(this).valid()){
+                $('#register-form-btn').prop('disabled', true);
+                var data = $(this).serialize();
+                $.ajax({
+                  method: 'GET',
+                  url: 'http://jsonplaceholder.typicode.com/posts',
+                  data: data,
+                  success: function(){
+                    console.log(true)
+                  },
+                  error: function(){
+                    console.log(false)
+                  },
+                  complete: function(){
+                    $('#register-form-btn').prop('disabled', false);
+                  }
+                })
+              }
+                return false;
+            })
+        });
+}());
+
+
+//LOGIN or REGISTER WINDOW OPEN/CLOSE
+(function(){
+  var openRegisterWindow = document.getElementById('user-signInUp-openBtn'),
+      closeBtn = document.getElementById('user-signInUp-closeBtn'),
+      userSignInUpWindow = document.querySelector('.s-register'),
+      userSignInUpWindowPic = document.querySelector('.s-register__picture-block'),
+      userSignInUpWindowForm = document.querySelector('.s-register__form-block')
+
+  openRegisterWindow.onclick = function(){
+    userSignInUpWindow.classList.add('s-register_active')
+    userSignInUpWindowPic.classList.remove('s-register__picture-block_disabled')
+    userSignInUpWindowForm.classList.remove('s-register__form-block_disabled')
+    userSignInUpWindowPic.classList.add('s-register__picture-block_active')
+    userSignInUpWindowForm.classList.add('s-register__form-block_active')
+  }
+  closeBtn.onclick = function(){
+    setTimeout(function(){
+      userSignInUpWindow.classList.remove('s-register_active');
+    },500)
+    userSignInUpWindowPic.classList.remove('s-register__picture-block_active')
+    userSignInUpWindowPic.classList.add('s-register__picture-block_disabled')
+    userSignInUpWindowForm.classList.remove('s-register__form-block_active')
+    userSignInUpWindowForm.classList.add('s-register__form-block_disabled')
+
+
+  }
 }());

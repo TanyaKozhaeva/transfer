@@ -1,0 +1,28 @@
+section.s-register(data-simplebar) 
+  .s-register__wrap
+    .s-register__picture-block
+    .s-register__form-block
+      .s-register__btn-wrap
+        button(type="button").s-register__close-btn#user-signInUp-closeBtn
+          +icon('close', '')
+      .s-register__form-wrap
+        +icon('logo', 'logo s-register__logo')
+        h2.s-register__title.title Добро пожаловать в международные переводы без границ.
+        form.s-register__form.user-form
+          .user-form__group
+            .user-form__input
+              label.checkbox 
+                span.checkbox__text Личный
+                input(type="radio" checked name="acc-type" value="personal")
+                span.checkbox__custom 
+            .user-form__input  
+              label.checkbox 
+                span.checkbox__text Бизнес
+                input(type="radio" name="acc-type" value="business")
+                span.checkbox__custom
+          label(for="email").hidden-text Введите адрес вашей электронной почты
+          input(type="email" name="email" id="email" placeholder="Ваш адрес электронной почты").user-form__input
+          
+          label(for="password").hidden-text Создайте пароль
+          input(type="password" name="password" id="password" placeholder="Создайте пароль").user-form__input
+          button(type="submit")#register-form-btn.btn.btn_color_green.user-form__btn Регистрация

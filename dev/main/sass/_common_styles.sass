@@ -1,5 +1,5 @@
 body
-  font-family: Arial, sans-serif
+  font-family: $mainFont
 .wrapper
   width: 100%
   max-width: 1024px
@@ -15,7 +15,6 @@ body
   width: 1px
   height: 1px
   overflow: hidden
-
 .title
   font-size: 2em
   line-height: 1.2
@@ -28,7 +27,6 @@ body
       color: $accentColor
     &_light
       color: #fff
-
 .text
   font-size: 16px
   font-weight: 500
@@ -44,7 +42,6 @@ body
     font-weight: 600
     color: $accentColor
     text-decoration: underline
-
 .btn
   display: inline-block
   min-height: 48px
@@ -58,6 +55,9 @@ body
   border-radius: 3px
   color: #fff
   transition: all .3s ease-in
+  &:disabled
+    background-color: $text-color
+    color: #fff
   &_color
     &_clear
       border: 1px solid $accentColor
@@ -84,7 +84,6 @@ body
     border-radius: 2px
     &:hover
       background-color: $mainColorDarken
-
 .tabs
   display: flex
   &__item
@@ -94,11 +93,8 @@ body
     &:not(:first-child)
       border-left: 1px solid #253655
   &-content-box
-    min-height: 500px
     display: flex
     flex-direction: column
-    & > *
-      flex: 1
 
   &__icon
     width: 25px
@@ -128,26 +124,31 @@ body
       & .tabs__icon
         fill: #fff
 .tabs-content
+  $margin-bottom-items: 24px
   display: none
-  height: 100%
   width: 100%
+  min-height: 500px
   padding: 40px
   padding-bottom: 28px
   box-sizing: border-box
   @media screen and (max-width: 880px)
     padding: 20px
-  & > *
-    margin-bottom: 24px
   &_active
     display: flex
     flex-direction: column
   &__title
+    margin-bottom: $margin-bottom-items
     span
       font-weight: 400
+  &__text
+    margin-bottom: $margin-bottom-items
   &__slider
     margin-top: 24px
+    margin-bottom: $margin-bottom-items
   &__pic
+    flex: 0 0%
     margin-top: 24px
+    margin-bottom: $margin-bottom-items
     picture
       width: 40%
       display: block
@@ -165,7 +166,7 @@ body
     justify-content: center
     margin: auto -12px 0
     &-item
-      flex: 1 200px
+      flex: 1 150px
       margin: 0 12px 12px
 .currency-slider
   display: flex
@@ -252,8 +253,12 @@ body
     box-sizing: border-box
     z-index: 200
     display: none
+    height: 0
+    transform-origin: top
     .form__group_active &
         display: block
+        height: auto
+        animation: scaleY .3s
   &__list
     padding: 20px 0
     padding-left: 23px
@@ -308,7 +313,6 @@ body
     margin: 22px 0
     strong
       font-weight: 600
-
 .choose-currency
   padding: 8px
   border-radius: 3px
@@ -350,23 +354,10 @@ body
     background-repeat: no-repeat
     background-size: cover
     background-position: center
-.eur-icon
-  background-image: url('../../static/svg/eur.svg')
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: center
-.uah-icon
-  background-image: url('../../static/svg/uah.svg')
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: center
-.gbp-icon
-  background-image: url('../../static/svg/gbp.svg')
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: center
-.usd-icon
-  background-image: url('../../static/svg/usd.svg')
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: center
+
+//DROPDOWN ANIMATIONS
+@keyframes scaleY
+  0%
+    transform: scaleY(0.00005)
+  100%
+    transform: scaleY(1)

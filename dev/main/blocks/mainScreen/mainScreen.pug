@@ -42,21 +42,21 @@ section.mainScreen
                 span.form__choose-text EUR
             .choose-currency.form__choose-currency
               header.choose-currency__header
-                label(for="search-currency").hidden-text Выберите валюту
-                input(type="search" name="search-currency" id="search-currency" placeholder="Выберите валюту").choose-currency__input
+                label(for="search-currency-from").hidden-text Выберите валюту
+                input(type="text" name="search-currency" id="search-currency-from" placeholder="Выберите валюту").choose-currency__input
                 h2.choose-currency__title Популярные валюты
               ul.choose-currency__list
                 li(data-currency="EUR").choose-currency__item.choose-currency__item_chosen 
-                  span.choose-currency__icon.choose-currency__icon_eur.eur-icon
+                  img(src="static/svg/eur.svg" alt="EUR icon").choose-currency__icon
                   span.choose-currency__text EUR
                 li(data-currency="UAH").choose-currency__item 
-                  span.choose-currency__icon.choose-currency__icon_uah.uah-icon
+                  img(src="static/svg/uah.svg" alt="UAH icon").choose-currency__icon
                   span.choose-currency__text UAH
                 li(data-currency="GBP").choose-currency__item 
-                  span.choose-currency__icon.choose-currency__icon_gbp.gbp-icon
+                  img(src="static/svg/gbp.svg" alt="GBP icon").choose-currency__icon
                   span.choose-currency__text GBP
                 li(data-currency="USD").choose-currency__item 
-                  span.choose-currency__icon.choose-currency__icon_usd.usd-icon 
+                  img(src="static/svg/usd.svg" alt="USD icon").choose-currency__icon
                   span.choose-currency__text USD
           ul.form__list
             li.form__list-item 
@@ -78,21 +78,21 @@ section.mainScreen
                 span.form__choose-text UAH
             .choose-currency.form__choose-currency
               header.choose-currency__header
-                label(for="search-currency").hidden-text Выберите валюту
-                input(type="search" name="search-currency" id="search-currency" placeholder="Выберите валюту").choose-currency__input
+                label(for="search-currency-to").hidden-text Выберите валюту
+                input(type="text" name="search-currency" id="search-currency-to" placeholder="Выберите валюту").choose-currency__input
                 h2.choose-currency__title Популярные валюты
               ul.choose-currency__list
                 li(data-currency="EUR").choose-currency__item
-                  span.choose-currency__icon.choose-currency__icon_eur 
+                  img(src="static/svg/eur.svg" alt="EUR icon").choose-currency__icon 
                   span.choose-currency__text EUR
                 li(data-currency="UAH").choose-currency__item.choose-currency__item_chosen  
-                  span.choose-currency__icon.choose-currency__icon_uah
+                  img(src="static/svg/uah.svg" alt="UAH icon").choose-currency__icon
                   span.choose-currency__text UAH
                 li(data-currency="USD").choose-currency__item 
-                  span.choose-currency__icon.choose-currency__icon_usd 
+                  img(src="static/svg/usd.svg" alt="USD icon").choose-currency__icon 
                   span.choose-currency__text USD
           p.form__date Должны поступить: 
-            strong янв 31
+            strong фев 22
           .tabs-content__controls
             a(href="#").btn.btn_color_green.tabs-content__controls-item Сравнить цены
             a(href="#").btn.btn_color_blue.tabs-content__controls-item Начать перевод
@@ -101,16 +101,16 @@ section.mainScreen
           p.tabs-content__text.text.text_color_light Активируйте мультивалютный счет TransferWise и получайте деньги со вcего мира с нулевой комиссией.
           ul.tabs-content__slider.currency-slider
             li.currency-slider__item 
-              span.currency-slider__icon.eur-icon
+              img(src="static/svg/eur.svg" alt="EUR icon").currency-slider__icon
               span.currency-slider__currency-name EUR
             li.currency-slider__item 
-              span.currency-slider__icon.uah-icon
+              img(src="static/svg/uah.svg" alt="UAH icon").currency-slider__icon
               span.currency-slider__currency-name UAH 
             li.currency-slider__item 
-              span.currency-slider__icon.gbp-icon
+              img(src="static/svg/gbp.svg" alt="GBP icon").currency-slider__icon
               span.currency-slider__currency-name GBP
             li.currency-slider__item
-              span.currency-slider__icon.usd-icon
+              img(src="static/svg/usd.svg" alt="USD icon").currency-slider__icon
               span.currency-slider__currency-name USD
           .tabs-content__controls
             a(href="#").btn.btn_color_clear.tabs-content__controls-item Посмотреть видео
@@ -120,9 +120,9 @@ section.mainScreen
             != 'Дебетовая карта <span>TransferWise Mastercard®</span>'
           p.tabs-content__text.text.text_color_light Тратьте деньги по всему миру с низкой комиссией и нулевыми сборами за транзакции.
           .tabs-content__pic
-            picture
-              sourse(srcset="static/img/general/credit-card.png, static/img/general/credit-card-retina.png 2x")
-              img(src="static/img/general/credit-card.png" alt="Credit card image")
+            picture   
+              source(srcset="static/img/general/credit-card.png, static/img/general/credit-card-retina.png 2x")
+              img(src="static/img/general/credit-card.png" alt="Credit card image")   
           .tabs-content__controls
             a(href="#").btn.btn_color_clear.tabs-content__controls-item Посмотреть видео
             a(href="#").btn.btn_color_green.tabs-content__controls-item Создать счет

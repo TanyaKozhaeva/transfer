@@ -1,0 +1,152 @@
+.s-register
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  z-index: 5000
+  overflow-y: auto
+  display: none
+  &_active
+    display: block
+  &__close-btn
+    width: 30px
+    height: 30px
+    & .icon
+      width: 100%
+      height: 100%
+      fill: $accentColor
+  &__wrap
+    display: flex
+    min-height: 100%
+    & > *
+      width: 50%
+      height: auto
+      min-height: 100vh
+      box-sizing: border-box
+  &__picture-block
+    background: #fff url('../../static/img/general/roof.jpg') right center no-repeat
+    background-size: cover
+    &_active
+      animation: translateYbottom .7s
+    &_disabled
+      animation: translateYbottom 2.5s reverse forwards
+    @media screen and (max-width: 1024px)
+      display: none
+  &__form-block
+    padding: 16px 20px
+    background-color: #fff
+    @media screen and (max-width: 1024px)
+      width: 100%
+    &_active
+      animation: translateYtop .7s
+    &_disabled
+      animation: translateYtop 2.5s reverse forwards
+  &__btn-wrap
+    text-align: right
+  &__form-wrap
+    max-width: 518px
+    margin: 30px auto 0
+    text-align: center
+  &__form
+    text-align: left
+  &__title
+    text-align: center
+    margin: 40px 0
+  &__logo
+    fill: $accentColor
+    width: 130px
+    height: 24px
+    margin-bottom: 16px
+
+@keyframes translateYtop
+  0%
+    transform: translateY(-100%)
+  100%
+    transform: translateY(0)
+@keyframes translateYbottom
+  0%
+    transform: translateY(100%)
+  100%
+    transform: translateY(0)
+.user-form
+  & > *
+    margin-bottom: 24px
+  &__group
+    display: flex
+    margin-left: -8px
+    margin-right: -8px
+    & > *
+      flex: 1
+      margin: 0 8px
+  &__input
+    width: 100%
+    padding: 13px 16px 11px
+    box-sizing: border-box
+    border: 1px solid $text-color
+    color: #829ca9
+    font-weight: 500
+    font-size: 16px
+    white-space: nowrap
+    border-radius: 3px
+    transition: borderColor .3s ease-in
+    &:focus
+      border-color: $accentColor
+    &::placeholder
+      font-family: inherit
+      font-size: inherit
+      font-weight: inherit
+      color: #829ca9
+    &.error
+      border-color: $errorColor
+      color: $errorColor
+      &::placeholder
+        color: $errorColor
+  &__btn
+    width: 100%
+
+
+//CUSTOM RADIO
+.checkbox
+  cursor: pointer
+  display: block
+  padding-left: 35px
+  position: relative
+  user-select: none
+  input
+    cursor: pointer
+    opacity: 0
+    position: absolute
+    &:checked
+      & ~ .checkbox__custom
+        border-color: $accentColor
+        &:after
+          display: block
+
+
+
+
+  &__custom
+    width: 20px
+    height: 20px
+    background-color: #fff
+    border: 1px solid $text-color
+    border-radius: 50%
+    left: 0
+    position: absolute
+    top: 50%
+    margin-top: -12px
+    &:after
+      content: ''
+      display: none
+      position: absolute
+      width: 12px
+      height: 12px
+      border-radius: 50%
+      background-color: $accentColor
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+  &__text
+    color: $mainColorDarken
+    font-weight: 600

@@ -9,6 +9,7 @@
   &__text
     margin-bottom: 26px
   &__slider
+    width: 75vw
     max-width: 1024px
     margin: 0 auto 57px
     @media screen and (max-width: 880px)
@@ -23,6 +24,9 @@
     background-color: #fff
     margin-left: 40px
     margin-right: 40px
+    @media screen and (max-width: 880px)
+      margin-left: 20px
+      margin-right: 20px
   &__title
     font-size: 18px
     line-height: 24px
@@ -33,7 +37,6 @@
     font-size: 16px
     color: #6f8691
     margin-bottom: 24px
-
   &__rating-item
     width: 14px
     height: 14px
@@ -54,9 +57,10 @@
       opacity: .5
   &__prev-btn
     left: 0
-    transform: rotate(180deg)
+    transform: rotate(180deg) translateX(100%)
   &__next-btn
     right: 0
+    transform: translateX(100%)
   &__icon
     width: 30px
     height: 30px
